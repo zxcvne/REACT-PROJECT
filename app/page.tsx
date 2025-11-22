@@ -11,7 +11,7 @@ export default function Home() {
         단어 공부, 데이터 CRUD, 로그인 기능을 구현한 템플릿 입니다.
       </p>
       <h2 className="font-bold text-3xl m-10">단어 암기 하기</h2>
-      <Link href="/voca">
+      <Link href={`/voca`}>
         <button className="mx-10 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">
           바로가기 ▶
         </button>

@@ -5,17 +5,17 @@ npm i mysql2 => DB
 
 - DB 구성 완료 => 파일 참조.
 
-디렉토리 구조
-
-1.  폴더 구성
-    api/voca 
-    components > layout > Header.tsx / Footer.tsx / LoginHeader / Ranking
-    components > voca > VocaList.tsx / 
-    components > login > VocaList.tsx / 
-    components > loginUser > VocaList.tsx / 
-    login
-    data > data.ts (sample data)
-    type > vocaType.ts (vocaType 정의)
+1.  디렉터리 구성 /app
     api > DB 연결에 필요한 서버 라인 함수
-    board > 라우트 연결 page
+    api/voca => voca DB 관련 로직
+    api/auth => user DB 관련 로직
+
+    components > layout > Header.tsx / Footer.tsx / LoginHeader / Ranking
+    components > voca > VocaList.tsx => 단어 암기 상세 페이지
+    login > 로그인 페이지
+    signup > 회원가입 페이지
+    voca > 단어 암기 페이지, 라우트 연결 page // 메인페이지에서 단어 암기 클릭시 넘어오는 페이지로 Day(n)으로 ch를 받아와서
+    그 챕터를 클릭하면 단어 암기 상세 페이지로 넘어가야 함.
+    loginUser > 로그인시 나올 메인 페이지
+    type > vocaType.ts (vocaType, userType 정의)
     lib > DB 설정 구문
