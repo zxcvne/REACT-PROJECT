@@ -28,35 +28,35 @@ export default function SignupPage() {
       <h2 className="text-3xl mb-4 font-bold">회원가입</h2>
       <input
         type="text"
-        placeholder="name"
+        placeholder="name..."
         value={name}
         onChange={(e) => setName(e.target.value)}
         className="w-100 border p-2 mb-2 block mt-5"
       />
       <input
         type="email"
-        placeholder="email"
+        placeholder="email..."
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         className="w-100 border p-2 mb-2 block mt-2"
       />
       <input
         type="password"
-        placeholder="password"
+        placeholder="password..."
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="w-100 border p-2 mb-2 block mt-2"
       />
       <input
         type="text"
-        placeholder="phone"
+        placeholder="phone..."
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
         className="w-100 border p-2 mb-2 block mt-2"
       />
       <input
         type="text"
-        placeholder="address"
+        placeholder="address..."
         value={address}
         onChange={(e) => setAddress(e.target.value)}
         className="w-100 border p-2 mb-2 block mt-2"

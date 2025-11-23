@@ -48,9 +48,9 @@ export default function LoginPage() {
       >
         LOGIN
       </button>
-      <Link href="/signup">
-        <p className="text-blue-600 mt-5">create account</p>
-      </Link>
+      <p className="text-blue-800 mt-5 hover:text-blue-400 ">
+        Forgot Password?
+      </p>
     </div>
   );
 }

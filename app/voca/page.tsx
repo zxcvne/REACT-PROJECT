@@ -4,46 +4,43 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-interface Chapter {
+interface ChapterType {
   ch: number;
 }
 
 export default function VocaPage() {
-  const [chapters, setChapters] = useState<Chapter[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [chapters, setChapters] = useState<ChapterType[] | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchChapters = async () => {
       try {
-        const res = await fetch("/api/voca/chapters");
-        if (!res.ok) throw new Error("Failed to fetch chapters");
-        const data = await res.json();
+        const response = await fetch(`/api/voca`);
+        // ↑ /api/voca/[ch] 말고 /api/voca 엔드포인트로
+        if (!response.ok) throw new Error("Failed to fetch chapters");
+        const data = await response.json();
         setChapters(data);
       } catch (e) {
         console.error(e);
-        setError("챕터를 불러올 수 없습니다.");
+        setChapters(null);
       } finally {
-        setIsLoading(false);
+        setLoading(false);
       }
     };
-
     fetchChapters();
   }, []);
 
-  if (isLoading) return <div className="m-10 text-lg">로딩 중...</div>;
-  if (error) return <div className="m-10 text-lg text-red-500">{error}</div>;
-  if (chapters.length === 0)
-    return <div className="m-10 text-lg">챕터가 없습니다.</div>;
+  if (loading) return <div>로딩 중...</div>;
+  if (!chapters || chapters.length === 0) return <div>Not Found</div>;
 
   return (
     <div>
-      <h1 className="font-bold text-3xl m-10">단어 암기 - Day 선택</h1>
-      <div className="grid grid-cols-3 gap-4 m-10">
-        {chapters.map((chapter) => (
-          <Link key={chapter.ch} href={`/voca/${chapter.ch}`}>
+      <h1 className="font-bold text-3xl m-10">단어 암기</h1>
+      <div className="grid grid-cols-2 gap-4 m-10">
+        {chapters.map((item) => (
+          <Link key={item.ch} href={`/voca/${item.ch}`}>
             <button className="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
-              Day {chapter.ch}
+              Day{item.ch}
             </button>
           </Link>
         ))}

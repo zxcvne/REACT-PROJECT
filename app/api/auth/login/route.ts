@@ -29,13 +29,6 @@ export async function POST(req: Request) {
       return Response.json({ error: "Invalid password" }, { status: 401 });
     }
 
-    // //JWT 발급
-    // const token = jwt.sign(
-    //   { userId: user.id, username: user.username },
-    //   JWT_SECRET,
-    //   { expiresIn: "1h" }
-    // );
-
     return Response.json({ message: "로그인 성공" });
   } catch (error) {
     console.error(error);

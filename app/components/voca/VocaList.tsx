@@ -1,5 +1,4 @@
 import { vocaType } from "@/app/type/vocaType";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
